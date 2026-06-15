@@ -2,7 +2,7 @@
 
 A real-time pipeline that detects pedestrians using YOLOv8, estimates
 their distance using CARLA's depth camera, computes Time-To-Collision
-(TTC), and triggers an Autonomous Emergency Braking (AEB) response when
+(TTC), and triggers an Autonomous Emergency Braking (AEB) - which is embedded library in CARLA python API used to control the vechile response when
 TTC drops below a safety threshold — mirroring the structure of Euro
 NCAP AEB pedestrian test evaluations.
 
@@ -11,10 +11,10 @@ NCAP AEB pedestrian test evaluations.
 ```
 CARLA World (synchronous mode)
       │
-      ├── Ego Vehicle ── RGB Camera ────┐
+      ├── Vehicle spawn──RGB Camera ────┐
       │                  Depth Camera ──┤
       │                                  ▼
-      │                          Frame Sync (sensors.py)
+      │                          Frame Sync (sensors.py) - world.tick()
       │                                  │
       │                    ┌─────────────┴──────────────┐
       │                    ▼                             ▼
